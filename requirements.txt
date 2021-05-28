@@ -1,0 +1,8 @@
+pandas
+cryptography
+paramiko
+mechanize
+xlrd
+openpyxl
+pandas-gbq
+google-cloud-secret-manager
