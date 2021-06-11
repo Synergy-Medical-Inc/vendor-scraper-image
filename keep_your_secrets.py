@@ -1,10 +1,12 @@
-from google.cloud import secretmanager
 import os
+
+from google.cloud import secretmanager
+
 
 def keep_your_secrets():
 
     #Get Secrets
-
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "test1-312816-9663bb495e7d.json"
     client = secretmanager.SecretManagerServiceClient()
     secrets = f"projects/481475670378/secrets/name-list-test-two/versions/1"
     response = client.access_secret_version(request={"name": secrets})
@@ -24,9 +26,9 @@ def keep_your_secrets():
 
 
 def tsdf():
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/Marcus/PycharmProjects/vendor_scraper_image/test1-312816-0263182f1b1e.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/test1-312816-9663bb495e7d.json"
     client = secretmanager.SecretManagerServiceClient()
-    secrets = f"projects/481475670378/secrets/str-to-list-test/versions/1"
+    secrets = f"projects/481475670378/secrets/linux-home-filestore-downloader-list/versions/1"
     response = client.access_secret_version(request={"name": secrets})
     payload = response.payload.data.decode('UTF-8')
     name = payload.replace('),', ')|,').split('|, ')

@@ -41,5 +41,3 @@ def gbq():
     for df, name in zip(tecnec(), table_names):
         full_name = 'daily_vendor_data.' + name
         df.to_gbq(full_name, kp()[11], if_exists='replace')
-
-gbq()

@@ -1,8 +1,7 @@
 from Cleaning import *
 
 def mpl_runner():
-    # mpl_to_gbq()
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/Marcus/PycharmProjects/vendor_scraper_image/test1-312816-0263182f1b1e.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "test1-312816-9663bb495e7d.json"
     client = sm.SecretManagerServiceClient()
     secrets = f"projects/481475670378/secrets/MPL-select-list/versions/1"
     response = client.access_secret_version(request={"name": secrets})
@@ -43,11 +42,9 @@ def mpl_df():
 
     return master_product_list
 
-print(mpl_df())
 
 def mpl_to_gbq():
     mpl_df().to_gbq('daily_vendor_data.master_product_list',
-                      kp()[11],
+                      'test1-312816',
                       if_exists='replace'
                       )
-

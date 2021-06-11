@@ -20,7 +20,7 @@ def synnex():
     synnex_filt = synnex_filt[synnex_filt['QTY'] >= 10]
     synnex_filt = synnex_filt[synnex_filt['QTY'] < 9999]
 
-    # GBQ
+    #GBQ
     synnex_filt.to_gbq('daily_vendor_data.synnex_ava',
                        kp()[11],
                        if_exists='replace'
